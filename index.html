@@ -438,36 +438,38 @@
       font-size: 11px;
     }
 
-    .scale-row span.label {
-      flex: 0 0 150px;
-      color: var(--muted);
-    }
-
     .scale-inputs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;           /* impede quebra de linha */
+  justify-content: flex-start; /* mantém alinhados à esquerda */
+}
 
-    .scale-inputs label {
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      padding: 4px 8px;
-      min-width: 32px;
-      text-align: center;
-      cursor: pointer;
-      color: var(--muted);
-    }
+.scale-inputs label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;                 /* largura igual para todos */
+  height: 34px;
+  border-radius: 50%;          /* forma circular */
+  border: 1px solid var(--border);
+  cursor: pointer;
+  color: var(--muted);
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
 
-    .scale-inputs input {
-      display: none;
-    }
+.scale-inputs input {
+  display: none;
+}
 
-    .scale-inputs input:checked + span {
-      border-color: var(--yellow);
-      background: rgba(255, 215, 0, 0.1);
-      color: var(--yellow-soft);
-    }
+.scale-inputs input:checked + span,
+.scale-inputs label:has(input:checked) {
+  border-color: var(--yellow);
+  background: rgba(255, 215, 0, 0.15);
+  color: var(--yellow-soft);
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.3);
+}
 
     .pill-cloud {
       display: flex;
@@ -533,6 +535,104 @@
     footer span.brand-footer {
       color: var(--yellow-soft);
       font-weight: 500;
+    }
+
+    /* ====== RESPONSIVIDADE ADICIONAL ====== */
+
+    @media (max-width: 1024px) {
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .card {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-links {
+        margin-top: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-wrapper {
+        padding: 24px 16px 32px;
+      }
+
+      .hero-title {
+        font-size: 24px;
+      }
+
+      .hero-subtitle {
+        font-size: 13px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        width: 100%;
+        text-align: center;
+      }
+
+      .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 22px;
+      }
+
+      .hero-subtitle {
+        font-size: 12px;
+      }
+
+      .hero-chip {
+        font-size: 11px;
+        padding: 4px 9px;
+      }
+
+      .card {
+        border-radius: 18px;
+        padding: 16px 14px;
+      }
+
+      label {
+        font-size: 11px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="number"],
+      select,
+      textarea {
+        font-size: 12px;
+      }
+
+      .form-section-title {
+        font-size: 11px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
     }
   </style>
 </head>
