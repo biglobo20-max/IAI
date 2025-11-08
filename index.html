@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Seleção de Gestores de Alta Performance - IAI Fitness</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Fonte moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-alt: #111111;
+      --yellow: #ffd700;
+      --yellow-soft: #ffeb7a;
+      --text: #f5f5f5;
+      --muted: #bbbbbb;
+      --border: #333333;
+      --error: #ff4b4b;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1a1a1a 0, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--yellow);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.94),
+        rgba(0, 0, 0, 0.75),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 215, 0, 0.08);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background-image: url("https://i.pinimg.com/736x/c3/19/2b/c3192b875122bf938694c46987ff2297.jpg");
+      background-size: cover;
+      background-position: center;
+      border: 2px solid var(--yellow);
+      box-shadow: 0 0 24px rgba(255, 215, 0, 0.7);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-text span:first-child {
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--yellow-soft);
+      font-weight: 600;
+    }
+
+    .brand-text span:last-child {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, var(--yellow), #fff4a5);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* LAYOUT PRINCIPAL: HEADLINE + FORM EM COLUNA (UM ABAIXO DO OUTRO) */
+
+    .hero-wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-content {
+      padding-right: 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 9px 4px 4px;
+      background: rgba(255, 215, 0, 0.08);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 215, 0, 0.16);
+      margin-bottom: 16px;
+    }
+
+    .badge-pill {
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #fff8c9, var(--yellow));
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .badge-text {
+      font-size: 11px;
+      color: var(--yellow-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 3vw, 32px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .hero-title span.highlight {
+      color: var(--yellow);
+      text-shadow: 0 0 14px rgba(255, 215, 0, 0.45);
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+      font-size: 12px;
+      color: var(--muted);
+      justify-content: center;
+    }
+
+    .hero-chip {
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      border: none;
+      outline: none;
+      padding: 10px 24px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--yellow), #fff2a6);
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(255, 215, 0, 0.3);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 36px rgba(255, 215, 0, 0.36);
+    }
+
+    .btn-ghost {
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 215, 0, 0.32);
+      background: transparent;
+      color: var(--yellow-soft);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+    }
+
+    .hero-note {
+      font-size: 11px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-note strong {
+      color: var(--yellow-soft);
+    }
+
+    /* CARD DO FORMULÁRIO */
+
+    .card {
+      background: radial-gradient(circle at 0 0, #333333 0, #151515 38%, #050505 100%);
+      border-radius: 24px;
+      padding: 22px 20px 22px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 215, 0, 0.16);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .card-header h2 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .card-header p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .pill-status {
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      color: var(--yellow-soft);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-section {
+      border-radius: var(--radius-md);
+      padding: 12px 12px 10px;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 215, 0, 0.08);
+    }
+
+    .form-section + .form-section {
+      margin-top: 4px;
+    }
+
+    .form-section-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--yellow-soft);
+      margin-bottom: 8px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .field-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    label span.required {
+      color: var(--yellow-soft);
+      margin-left: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(10, 10, 10, 0.9);
+      padding: 9px 13px;
+      font-size: 13px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    textarea {
+      border-radius: 16px;
+      resize: vertical;
+      min-height: 70px;
+      padding-top: 9px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #777777;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--yellow);
+      box-shadow: 0 0 0 1px rgba(255, 215, 0, 0.4);
+      background: rgba(15, 15, 15, 0.98);
+    }
+
+    .options-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      font-size: 12px;
+    }
+
+    .options-inline label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .helper {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .scale-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 11px;
+    }
+
+    .scale-row span.label {
+      flex: 0 0 150px;
+      color: var(--muted);
+    }
+
+    .scale-inputs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .scale-inputs label {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      min-width: 32px;
+      text-align: center;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .scale-inputs input {
+      display: none;
+    }
+
+    .scale-inputs input:checked + span {
+      border-color: var(--yellow);
+      background: rgba(255, 215, 0, 0.1);
+      color: var(--yellow-soft);
+    }
+
+    .pill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill-cloud label {
+      font-size: 11px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .pill-cloud input {
+      display: none;
+    }
+
+    .pill-cloud input:checked + span {
+      border-color: var(--yellow);
+      background: rgba(255, 215, 0, 0.1);
+      color: var(--yellow-soft);
+    }
+
+    .form-footer {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--error);
+    }
+
+    .error .error-message {
+      display: block;
+    }
+
+    .error input,
+    .error select,
+    .error textarea {
+      border-color: var(--error);
+      box-shadow: 0 0 0 1px rgba(255, 75, 75, 0.4);
+    }
+
+    footer {
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 215, 0, 0.08);
+      padding: 12px 20px 18px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer span.brand-footer {
+      color: var(--yellow-soft);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <div class="brand">
+          <div class="brand-mark" aria-label="IAI Fitness Logo"></div>
+          <div class="brand-text">
+            <span>Seleção Gestores</span>
+            <span>IAI Fitness • Alta Performance</span>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#sobre">Sobre a vaga</a>
+          <a href="#formulario">Formulário</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-wrapper" id="sobre">
+        <div class="hero-content">
+          <div class="badge">
+            <span class="badge-pill">Vaga Gestor(a)</span>
+            <span class="badge-text">Time de Alta Performance • IAI Fitness</span>
+          </div>
+
+          <h1 class="hero-title">
+            Liderar pessoas, <span class="highlight">bater metas</span> e transformar ambientes:
+            essa vaga é para quem joga em alto nível.
+          </h1>
+
+          <p class="hero-subtitle">
+            Estamos selecionando Gestores para unidades da
+            <strong>IAI Fitness</strong> em <strong>Gandu</strong> e
+            <strong>Cruz das Almas</strong>, para atuar em um ambiente moderno,
+            focado em resultado, equipe e experiência do cliente.
+          </p>
+
+          <div class="hero-meta">
+            <div class="hero-chip">📍 Gandu & Cruz das Almas</div>
+            <div class="hero-chip">💰 Fixo + variável + bônus</div>
+            <div class="hero-chip">⏰ Carga horária integral</div>
+            <div class="hero-chip">👥 Liderança, vendas e gestão</div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="scrollToForm()">Preencher formulário</button>
+            <button class="btn-ghost" onclick="scrollToForm()">Quero liderar na IAI Fitness</button>
+          </div>
+
+          <p class="hero-note">
+            <strong>Importante:</strong> esta vaga é exclusiva para quem já possui
+            experiência em liderança de equipes, gestão de resultados e rotina operacional.
+          </p>
+        </div>
+
+        <aside class="card" id="formulario">
+          <div class="card-header">
+            <div>
+              <h2>Formulário de Seleção</h2>
+              <p>Preencha seus dados com atenção. Essa é a sua primeira impressão.</p>
+            </div>
+            <span class="pill-status">Processo seletivo ativo</span>
+          </div>
+
+          <!-- FORMULÁRIO COM INTEGRAÇÃO n8n -->
+          <form
+            id="gestorForm"
+            action="https://n8n-n8n-editor.nyrnfd.easypanel.host/webhook/IAIFITNESS"
+            method="post"
+            novalidate
+          >
+            <!-- Seção 1 - Elegibilidade -->
+            <div class="form-section">
+              <div class="form-section-title">Seção 1: Pré-requisitos</div>
+
+              <div class="form-group">
+                <label>
+                  1.1 Você tem experiência comprovada em liderança de equipes?
+                  <span class="required">*</span>
+                </label>
+                <div class="options-inline">
+                  <label>
+                    <input type="radio" name="lideranca_experiencia" value="sim" required />
+                    <span>Sim</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="lideranca_experiencia" value="nao" />
+                    <span>Não</span>
+                  </label>
+                </div>
+                <p class="helper">
+                  Esta vaga é destinada a profissionais com vivência real em gestão de equipes.
+                </p>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  1.2 Em qual cidade você tem disponibilidade para atuar?
+                  <span class="required">*</span>
+                </label>
+                <div class="options-inline">
+                  <label>
+                    <input type="radio" name="cidade" value="Gandu" required />
+                    <span>Gandu</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="cidade" value="Cruz das Almas" />
+                    <span>Cruz das Almas</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="cidade" value="Ambas" />
+                    <span>Ambas</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Seção 2 - Dados pessoais -->
+            <div class="form-section">
+              <div class="form-section-title">Seção 2: Dados pessoais</div>
+              <div class="field-grid">
+                <div class="form-group">
+                  <label for="nome">
+                    2.1 Nome completo <span class="required">*</span>
+                  </label>
+                  <input id="nome" name="nome" type="text" placeholder="Seu nome e sobrenome" required />
+                </div>
+                <div class="form-group">
+                  <label for="idade">2.2 Idade <span class="required">*</span></label>
+                  <input id="idade" name="idade" type="number" min="16" max="80" placeholder="Ex: 32" required />
+                </div>
+                <div class="form-group">
+                  <label for="estado_civil">2.3 Estado civil</label>
+                  <select id="estado_civil" name="estado_civil">
+                    <option value="">Selecione...</option>
+                    <option value="solteiro">Solteiro(a)</option>
+                    <option value="casado">Casado(a)</option>
+                    <option value="divorciado">Divorciado(a)</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>2.4 Possui filhos?</label>
+                  <div class="options-inline">
+                    <label>
+                      <input type="radio" name="filhos" value="sim" />
+                      <span>Sim</span>
+                    </label>
+                    <label>
+                      <input type="radio" name="filhos" value="nao" />
+                      <span>Não</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">
+                    2.5 E-mail <span class="required">*</span>
+                  </label>
+                  <input id="email" name="email" type="email" placeholder="voce@exemplo.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="whatsapp">
+                    2.6 WhatsApp <span class="required">*</span>
+                  </label>
+                  <input
+                    id="whatsapp"
+                    name="whatsapp"
+                    type="tel"
+                    placeholder="(00) 00000-0000"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="rede">
+                    2.7 Instagram
+                  </label>
+                  <input
+                    id="rede"
+                    name="rede"
+                    type="text"
+                    placeholder="@seuusuario"
+                  />
+                  <p class="helper">
+                    ⚠️ Certifique-se de deixar seu perfil aberto para análise.
+                  </p>
+                </div>
+                <div class="form-group">
+                  <label>
+                    2.8 Sexo
+                  </label>
+                  <div class="options-inline">
+                    <label>
+                      <input type="radio" name="sexo" value="Feminino" />
+                      <span>Feminino</span>
+                    </label>
+                    <label>
+                      <input type="radio" name="sexo" value="Masculino" />
+                      <span>Masculino</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Seção 3 - Formação e experiência -->
+            <div class="form-section">
+              <div class="form-section-title">Seção 3: Formação & experiência</div>
+              <div class="form-group">
+                <label for="formacao">
+                  3.1 Formação acadêmica e cursos complementares <span class="required">*</span>
+                </label>
+                <textarea
+                  id="formacao"
+                  name="formacao"
+                  placeholder="Conte sua formação, cursos na área de gestão, vendas, liderança etc."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="emprego_atual">
+                  3.2 Atualmente está empregado? Se sim, qual função, empresa e há quanto tempo?
+                </label>
+                <textarea
+                  id="emprego_atual"
+                  name="emprego_atual"
+                  placeholder="Ex: Gestor comercial na Academia X há 2 anos."
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="experiencia_empresas">
+                  3.3 Em quais empresas já atuou? Por quanto tempo? Quais eram suas principais funções?
+                </label>
+                <textarea
+                  id="experiencia_empresas"
+                  name="experiencia_empresas"
+                  placeholder="Liste as empresas, cargos, tempo e principais responsabilidades."
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="experiencia_vendas">
+                  3.4 Já atuou na área de vendas (produtos ou serviços)? Conte sua experiência e resultados.
+                </label>
+                <textarea
+                  id="experiencia_vendas"
+                  name="experiencia_vendas"
+                  placeholder="Fale sobre metas, resultados, ticket médio, tipos de vendas, equipe etc."
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="gestao_financeira">
+                  3.5 Já atuou na área de gestão financeira (DRE, lançamentos, fechamento de caixa, etc.)?
+                </label>
+                <textarea
+                  id="gestao_financeira"
+                  name="gestao_financeira"
+                  placeholder="Descreva brevemente suas responsabilidades financeiras."
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  3.6 Você se considera uma pessoa que:
+                </label>
+                <div class="options-inline">
+                  <label>
+                    <input type="radio" name="perfil_acao" value="orientacoes" />
+                    <span>Espera orientações antes de agir</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="perfil_acao" value="iniciativa" />
+                    <span>Toma iniciativa</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contratacao_demissao">
+                  3.7 Já precisou contratar ou demitir alguém? Como conduziu esse processo?
+                </label>
+                <textarea
+                  id="contratacao_demissao"
+                  name="contratacao_demissao"
+                  placeholder="Descreva como toma decisões difíceis e conduz conversas delicadas."
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Seção 4 - Perfil & competências -->
+            <div class="form-section">
+              <div class="form-section-title">Seção 4: Perfil & competências</div>
+
+              <div class="form-group">
+                <label>
+                  4.1 Com qual dos perfis abaixo você mais se identifica? (marque até 2)
+                </label>
+                <div class="pill-cloud">
+                  <label>
+                    <input type="checkbox" name="perfil_comportamental" value="Comunicador" />
+                    <span>Comunicador</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" name="perfil_comportamental" value="Analista" />
+                    <span>Analista</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" name="perfil_comportamental" value="Executor" />
+                    <span>Executor</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" name="perfil_comportamental" value="Colaborador" />
+                    <span>Colaborador</span>
+                  </label>
+                </div>
+                <p class="helper">
+                  <strong>Comunicador:</strong> Tem facilidade em iniciar conversas, expressar a sua opinião,
+                  falar em público e possui uma comunicação acessível e de fácil compreensão.
+                </p>
+                <p class="helper">
+                  <strong>Analista:</strong> Possui uma visão mais sistêmica, consegue enxergar à frente e, muitas vezes,
+                  levanta pontos que ainda não foram percebidos pelos demais.
+                </p>
+                <p class="helper">
+                  <strong>Executor:</strong> Costuma ser uma pessoa que compreende facilmente as dinâmicas de trabalho,
+                  tendo atitudes mais pragmáticas e com maior atenção para prazos e regras.
+                </p>
+                <p class="helper">
+                  <strong>Colaborador:</strong> Consegue entender facilmente os dois lados de uma situação, sendo assim
+                  uma pessoa de comportamento mais flexível, proativo e empático ao próximo.
+                </p>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  4.2 De 1 a 5, como você se avalia nos pontos abaixo? (1 = fraco, 5 = excelente)
+                </label>
+
+                <div class="scale-row">
+                  <span class="label">Proatividade</span>
+                  <div class="scale-inputs">
+                    <label><input type="radio" name="escala_proatividade" value="1" /><span>1</span></label>
+                    <label><input type="radio" name="escala_proatividade" value="2" /><span>2</span></label>
+                    <label><input type="radio" name="escala_proatividade" value="3" /><span>3</span></label>
+                    <label><input type="radio" name="escala_proatividade" value="4" /><span>4</span></label>
+                    <label><input type="radio" name="escala_proatividade" value="5" /><span>5</span></label>
+                  </div>
+                </div>
+
+                <div class="scale-row">
+                  <span class="label">Gestão financeira</span>
+                  <div class="scale-inputs">
+                    <label><input type="radio" name="escala_financas" value="1" /><span>1</span></label>
+                    <label><input type="radio" name="escala_financas" value="2" /><span>2</span></label>
+                    <label><input type="radio" name="escala_financas" value="3" /><span>3</span></label>
+                    <label><input type="radio" name="escala_financas" value="4" /><span>4</span></label>
+                    <label><input type="radio" name="escala_financas" value="5" /><span>5</span></label>
+                  </div>
+                </div>
+
+                <div class="scale-row">
+                  <span class="label">Gestão de pessoas</span>
+                  <div class="scale-inputs">
+                    <label><input type="radio" name="escala_pessoas" value="1" /><span>1</span></label>
+                    <label><input type="radio" name="escala_pessoas" value="2" /><span>2</span></label>
+                    <label><input type="radio" name="escala_pessoas" value="3" /><span>3</span></label>
+                    <label><input type="radio" name="escala_pessoas" value="4" /><span>4</span></label>
+                    <label><input type="radio" name="escala_pessoas" value="5" /><span>5</span></label>
+                  </div>
+                </div>
+
+                <div class="scale-row">
+                  <span class="label">Comunicação</span>
+                  <div class="scale-inputs">
+                    <label><input type="radio" name="escala_comunicacao" value="1" /><span>1</span></label>
+                    <label><input type="radio" name="escala_comunicacao" value="2" /><span>2</span></label>
+                    <label><input type="radio" name="escala_comunicacao" value="3" /><span>3</span></label>
+                    <label><input type="radio" name="escala_comunicacao" value="4" /><span>4</span></label>
+                    <label><input type="radio" name="escala_comunicacao" value="5" /><span>5</span></label>
+                  </div>
+                </div>
+
+                <div class="scale-row">
+                  <span class="label">Resolução de problemas</span>
+                  <div class="scale-inputs">
+                    <label><input type="radio" name="escala_problemas" value="1" /><span>1</span></label>
+                    <label><input type="radio" name="escala_problemas" value="2" /><span>2</span></label>
+                    <label><input type="radio" name="escala_problemas" value="3" /><span>3</span></label>
+                    <label><input type="radio" name="escala_problemas" value="4" /><span>4</span></label>
+                    <label><input type="radio" name="escala_problemas" value="5" /><span>5</span></label>
+                  </div>
+                </div>
+
+                <div class="scale-row">
+                  <span class="label">Organização</span>
+                  <div class="scale-inputs">
+                    <label><input type="radio" name="escala_organizacao" value="1" /><span>1</span></label>
+                    <label><input type="radio" name="escala_organizacao" value="2" /><span>2</span></label>
+                    <label><input type="radio" name="escala_organizacao" value="3" /><span>3</span></label>
+                    <label><input type="radio" name="escala_organizacao" value="4" /><span>4</span></label>
+                    <label><input type="radio" name="escala_organizacao" value="5" /><span>5</span></label>
+                  </div>
+                </div>
+
+                <div class="scale-row">
+                  <span class="label">Liderança de equipe</span>
+                  <div class="scale-inputs">
+                    <label><input type="radio" name="escala_lideranca" value="1" /><span>1</span></label>
+                    <label><input type="radio" name="escala_lideranca" value="2" /><span>2</span></label>
+                    <label><input type="radio" name="escala_lideranca" value="3" /><span>3</span></label>
+                    <label><input type="radio" name="escala_lideranca" value="4" /><span>4</span></label>
+                    <label><input type="radio" name="escala_lideranca" value="5" /><span>5</span></label>
+                  </div>
+                </div>
+
+                <div class="scale-row">
+                  <span class="label">Vendas</span>
+                  <div class="scale-inputs">
+                    <label><input type="radio" name="escala_vendas" value="1" /><span>1</span></label>
+                    <label><input type="radio" name="escala_vendas" value="2" /><span>2</span></label>
+                    <label><input type="radio" name="escala_vendas" value="3" /><span>3</span></label>
+                    <label><input type="radio" name="escala_vendas" value="4" /><span>4</span></label>
+                    <label><input type="radio" name="escala_vendas" value="5" /><span>5</span></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="ultima_habilidade">
+                  4.3 Qual foi a última habilidade ou conhecimento que você adquiriu?
+                </label>
+                <textarea
+                  id="ultima_habilidade"
+                  name="ultima_habilidade"
+                  placeholder="Conte brevemente sobre algo novo que você aprendeu recentemente."
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="qualidades">
+                  4.4 Quais suas principais qualidades (seus pontos fortes)?
+                </label>
+                <textarea
+                  id="qualidades"
+                  name="qualidades"
+                  placeholder="Fale sobre seus principais pontos fortes como pessoa e como gestor(a)."
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="defeitos">
+                  4.5 Quais suas principais defeitos (seus pontos fracos)?
+                </label>
+                <textarea
+                  id="defeitos"
+                  name="defeitos"
+                  placeholder="Seja sincero(a): onde você sente que ainda precisa evoluir?"
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Seção 5 - Valores & história -->
+            <div class="form-section">
+              <div class="form-section-title">Seção 5: Valores & história</div>
+
+              <div class="form-group">
+                <label>
+                  5.1 Das palavras abaixo, escolha até 5 que mais representam sua forma de pensar e agir como gestor(a):
+                </label>
+                <div class="pill-cloud" id="valores-group">
+                  <label><input type="checkbox" name="valores" value="Disciplina" /><span>Disciplina</span></label>
+                  <label><input type="checkbox" name="valores" value="Eficiência" /><span>Eficiência</span></label>
+                  <label><input type="checkbox" name="valores" value="Inovação" /><span>Inovação</span></label>
+                  <label><input type="checkbox" name="valores" value="Produtividade" /><span>Produtividade</span></label>
+                  <label><input type="checkbox" name="valores" value="Justiça social" /><span>Justiça social</span></label>
+                  <label><input type="checkbox" name="valores" value="Lucro" /><span>Lucro</span></label>
+                  <label><input type="checkbox" name="valores" value="Meritocracia" /><span>Meritocracia</span></label>
+                  <label><input type="checkbox" name="valores" value="Bem comum" /><span>Bem comum</span></label>
+                  <label><input type="checkbox" name="valores" value="Igualdade" /><span>Igualdade</span></label>
+                  <label><input type="checkbox" name="valores" value="Solidariedade" /><span>Solidariedade</span></label>
+                  <label><input type="checkbox" name="valores" value="Coletividade" /><span>Coletividade</span></label>
+                  <label><input type="checkbox" name="valores" value="Competitividade" /><span>Competitividade</span></label>
+                  <label><input type="checkbox" name="valores" value="Progresso" /><span>Progresso</span></label>
+                </div>
+                <p class="helper" id="valores-helper">
+                  Máximo de 5 valores. Ao tentar marcar mais que 5, o sistema não irá permitir.
+                </p>
+              </div>
+
+              <div class="form-group">
+                <label for="historia">
+                  5.2 Fale sobre sua história, seu jeito de trabalhar, seus valores e o que te motiva a crescer profissionalmente.
+                  <span class="required">*</span>
+                </label>
+                <textarea
+                  id="historia"
+                  name="historia"
+                  required
+                  placeholder="Queremos conhecer a pessoa por trás do currículo. Conte quem é você na vida e no trabalho."
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Seção 6 - Envio -->
+            <div class="form-section">
+              <div class="form-section-title">Seção 6: Envio</div>
+              <div class="form-footer">
+                <p>
+                  6.1 Ao enviar este formulário, você declara que as informações prestadas são verdadeiras.
+                </p>
+                <p>
+                  6.2 Se o seu perfil avançar para a próxima etapa, a equipe da
+                  <strong>IAI Fitness</strong> entrará em contato pelo WhatsApp ou e-mail informados.
+                </p>
+                <button type="submit" class="btn-primary">Enviar candidatura</button>
+                <p id="formFeedback" class="helper"></p>
+              </div>
+            </div>
+          </form>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © <span id="year"></span> <span class="brand-footer">IAI Fitness</span> •
+        Processo de Seleção de Gestores de Alta Performance.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // rolar até o formulário
+    function scrollToForm() {
+      const el = document.getElementById("formulario");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    // ano automático no rodapé
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const form = document.getElementById("gestorForm");
+    const feedbackEl = document.getElementById("formFeedback");
+    const submitBtn = form.querySelector("button[type='submit']");
+
+    // Limite de 5 valores na seção 5
+    const valoresCheckboxes = document.querySelectorAll('input[name="valores"]');
+    valoresCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        const checked = Array.from(valoresCheckboxes).filter((c) => c.checked);
+        if (checked.length > 5) {
+          checkbox.checked = false;
+          alert("Você pode selecionar no máximo 5 valores.");
+        }
+      });
+    });
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      // limpa mensagens e estados anteriores
+      feedbackEl.textContent = "";
+      feedbackEl.style.color = "#bbbbbb";
+
+      // trava o botão durante o envio
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando...";
+
+      // validação básica dos campos obrigatórios
+      const requiredIds = ["nome", "idade", "email", "whatsapp", "formacao", "historia"];
+      let hasError = false;
+
+      requiredIds.forEach((id) => {
+        const field = document.getElementById(id);
+        const wrapper = field.closest(".form-group");
+        if (!field.value.trim()) {
+          hasError = true;
+          if (wrapper) wrapper.classList.add("error");
+        } else {
+          if (wrapper) wrapper.classList.remove("error");
+        }
+      });
+
+      // checa liderança obrigatória
+      const lideranca = form.querySelector('input[name="lideranca_experiencia"]:checked');
+      if (!lideranca || lideranca.value !== "sim") {
+        hasError = true;
+        feedbackEl.textContent =
+          "Esta vaga é exclusiva para profissionais com experiência em liderança de equipes.";
+        feedbackEl.style.color = "#ff4b4b";
+      }
+
+      if (hasError) {
+        if (!feedbackEl.textContent) {
+          feedbackEl.textContent = "Por favor, preencha os campos obrigatórios destacados.";
+          feedbackEl.style.color = "#ff4b4b";
+        }
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Enviar candidatura";
+        return;
+      }
+
+      // monta objeto com os dados do formulário
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          feedbackEl.textContent = "✅ Candidatura enviada com sucesso!";
+          feedbackEl.style.color = "#00ff88";
+          form.reset();
+        } else {
+          feedbackEl.textContent =
+            "❌ Erro ao enviar os dados. Verifique o webhook do n8n ou o fluxo configurado.";
+          feedbackEl.style.color = "#ff4b4b";
+        }
+      } catch (error) {
+        feedbackEl.textContent =
+          "⚠️ Falha de conexão. Verifique sua internet ou se o servidor n8n está acessível.";
+        feedbackEl.style.color = "#ffcc00";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Enviar candidatura";
+      }
+    });
+  </script>
+</body>
+</html>
