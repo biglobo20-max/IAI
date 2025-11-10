@@ -704,7 +704,7 @@
           <!-- FORMULÁRIO COM INTEGRAÇÃO n8n -->
           <form
             id="gestorForm"
-            action="https://n8n-n8n-editor.nyrnfd.easypanel.host/webhook/IAIFITNESS"
+            action="https://n8n-n8n-webhook.nyrnfd.easypanel.host/webhook/IAIFITNESS"
             method="post"
             novalidate
           >
@@ -1267,7 +1267,7 @@
         feedbackEl.textContent =
           "⚠️ Falha de conexão. Verifique sua internet ou se o servidor n8n está acessível.";
         feedbackEl.style.color = "#ffcc00";
-      } finally {
+      } finally {o
         submitBtn.disabled = false;
         submitBtn.textContent = "Enviar candidatura";
       }
